@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amager Run 21: 21 km along the harbour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--ink:#0B1533;--mut:#55607A;--line:#D9D3C5;--acc:#D93A00;--hb:#0B1533;--hi:#F4F1EA;--hh:#D6FF3F;--hs:rgba(244,241,234,.3);--btn:#FF4B14;--bi:#0B1533;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1533;--ink:#F4F1EA;--mut:#A9B3CC;--line:#243157;--acc:#FF4B14}}
+:root[data-theme="dark"]{--bg:#0B1533;--ink:#F4F1EA;--mut:#A9B3CC;--line:#243157;--acc:#FF4B14}
+:root[data-look="volt"]{--bg:#D6FF3F;--ink:#0B1533;--mut:#3E4A1E;--line:#BBDE35;--acc:#0B1533;--hb:#D6FF3F;--hi:#0B1533;--hh:#FF4B14;--hs:rgba(11,21,51,.35);--btn:#0B1533;--bi:#D6FF3F}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+.d,h1,h2,h3{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-weight:400;text-transform:uppercase;margin:0}
+h2{font-size:clamp(44px,8vw,96px);line-height:.92;letter-spacing:-.01em}
+.btn{display:inline-block;font:600 16px/1 Inter,sans-serif;background:var(--btn);color:var(--bi);border:0;border-radius:99px;padding:18px 30px;cursor:pointer;text-decoration:none;transition:transform .12s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+:is(.btn,button,input,select,summary,a):focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.top{position:absolute;z-index:3;left:0;right:0;top:env(safe-area-inset-top,0px);color:var(--hi)}
+.top .w{display:flex;justify-content:space-between;align-items:center;padding-top:18px;padding-bottom:18px;gap:16px}
+.top .d{font-size:24px;letter-spacing:.02em}.top nav{display:flex;gap:22px;font-size:15px;font-weight:500}.top a{color:inherit;text-decoration:none}
+.top .btn{padding:12px 20px;font-size:14px;color:var(--bi)}
+@media(max-width:760px){.top nav a:not(.btn){display:none}}
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;background:var(--hb);color:var(--hi);overflow:hidden;display:grid;place-items:center}
+.row{position:absolute;left:0;white-space:nowrap;font:400 clamp(90px,17vw,240px)/.9 Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px var(--hs);will-change:transform;animation:mq 45s linear infinite}
+.row.o{color:#FF4B14;-webkit-text-stroke:0;animation-direction:reverse;animation-duration:60s}
+.row.h{-webkit-text-stroke-color:var(--hh);animation-duration:75s}
+@keyframes mq{to{transform:translateX(-50%)}}
+.big{position:relative;text-align:center}
+.big b{display:block;font:400 clamp(170px,36vw,470px)/.8 Anton,sans-serif;color:var(--hh);letter-spacing:-.05em}
+.big span{display:block;margin-top:16px;font:600 clamp(13px,1.6vw,19px)/1 Inter,sans-serif;letter-spacing:.4em;text-transform:uppercase}
+.vt{position:absolute;top:50%;writing-mode:vertical-rl;font:600 clamp(11px,1.3vw,16px)/1 Inter,sans-serif;letter-spacing:.5em;text-transform:uppercase;left:clamp(12px,3vw,36px);transform:translateY(-50%) rotate(180deg)}
+.vt.r{left:auto;right:clamp(12px,3vw,36px);transform:translateY(-50%);color:#FF4B14}
+.cd{position:absolute;left:0;right:0;bottom:calc(28px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:clamp(16px,4vw,44px);font-variant-numeric:tabular-nums}
+.cd div{text-align:center}.cd b{display:block;font:400 clamp(34px,6vw,64px)/1 Anton,sans-serif}.cd small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
+/* sections */
+section{padding:clamp(72px,10vw,150px) 0}
+.sub{max-width:34em;color:var(--mut);margin:20px 0 0;font-size:19px}
+.dists{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.dist{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:28px;border:2px solid var(--line);border-radius:18px;transition:transform .2s,border-color .2s,background .2s}
+.dist:hover{transform:translateY(-4px)}.dist:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.dist[aria-pressed=true]{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 8%,transparent)}
+.dist .d{font-size:clamp(80px,11vw,140px);line-height:.85}.dist .d small{font-size:.3em;margin-left:4px;color:var(--acc)}
+.dist p{margin:0;color:var(--mut);font-size:15.5px}.dist strong{color:var(--ink);font-size:18px}
+/* route */
+.route{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,5vw,64px);margin-top:48px;align-items:center}
+.map{width:100%;height:auto;background:color-mix(in srgb,var(--ink) 5%,transparent);border-radius:20px}
+.map .p{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.map .w{fill:none;stroke:var(--mut);stroke-width:1.5;stroke-dasharray:3 7;opacity:.5}
+.ro h3{font-size:clamp(52px,8vw,92px);line-height:.9;color:var(--acc)}.ro p{margin:6px 0 18px;color:var(--mut);min-height:3.3em}
+.ro input[type=range]{width:100%;accent-color:var(--acc);height:36px}
+.elev{width:100%;height:70px;margin-top:6px}.elev path{fill:color-mix(in srgb,var(--acc) 22%,transparent);stroke:var(--acc);stroke-width:2}
+@media(max-width:860px){.route{grid-template-columns:1fr}.dists{grid-template-columns:1fr}.dist{flex-direction:row;align-items:center;gap:20px}}
+/* schedule */
+.sched{margin:48px 0 0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.sched li{display:grid;grid-template-columns:clamp(90px,16vw,200px) 1fr;gap:16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.sched time{font:400 clamp(30px,5vw,56px)/1 Anton,sans-serif;font-variant-numeric:tabular-nums}.sched span{font-size:18px}.sched em{font-style:normal;color:var(--mut);display:block;font-size:15px}
+/* signup */
+.sign{background:var(--hb);color:var(--hi)}
+.sign .sub{color:inherit;opacity:.8}
+.su{display:grid;grid-template-columns:1fr 360px;gap:clamp(28px,6vw,80px);margin-top:48px;align-items:start}
+label,fieldset{display:block;border:0;padding:0;margin:0 0 22px;font-weight:500;font-size:15px}
+input,select{display:block;width:100%;margin-top:6px;font:inherit;color:inherit;background:transparent;border:1.5px solid color-mix(in srgb,var(--hi) 45%,transparent);border-radius:12px;padding:14px 16px;min-height:54px}
+select option{color:#0B1533}
+.chips{display:flex;gap:10px;margin-top:8px}.chips label{margin:0}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:block;padding:14px 22px;border-radius:99px;border:1.5px solid color-mix(in srgb,var(--hi) 45%,transparent);cursor:pointer;font:400 24px/1 Anton,sans-serif;transition:background .15s}
+.chips input:checked+span{background:var(--hh);color:var(--hb);border-color:var(--hh)}
+.chips input:focus-visible+span{outline:3px solid var(--hh);outline-offset:3px}
+.err{min-height:24px;margin:0 0 10px;color:#FF8A66}
+.sign .btn{background:var(--hh);color:var(--hb)}
+.bib{background:#F4F1EA;color:#0B1533;border-radius:16px;padding:20px 22px 24px;position:relative;transform:rotate(-2deg);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.bib::before,.bib::after{content:'';position:absolute;top:12px;width:12px;height:12px;border-radius:50%;background:var(--hb)}.bib::before{left:14px}.bib::after{right:14px}
+.bib small{display:block;text-align:center;font:600 11px/1 Inter,sans-serif;letter-spacing:.3em;text-transform:uppercase;margin-top:10px}
+.bib .n{display:block;text-align:center;font:400 118px/1 Anton,sans-serif;font-variant-numeric:tabular-nums;color:#FF4B14;margin:6px 0 0;transition:transform .2s}
+.bib .n.pop{transform:scale(1.06)}
+.bib .nm{display:block;text-align:center;font:400 30px/1.1 Anton,sans-serif;text-transform:uppercase;min-height:1.1em}
+.bib .bar{height:10px;background:repeating-linear-gradient(90deg,#0B1533 0 10px,transparent 10px 16px);margin-top:16px}
+.done .su>form{display:none}.ok{display:none}.done .ok{display:block}
+.ok h3{font-size:clamp(40px,7vw,80px);line-height:.95;color:var(--hh)}.ok canvas{width:100%;max-width:340px;border-radius:14px;margin-top:18px;display:block}
+.ok p{opacity:.8;max-width:30em}
+/* faq */
+details{border-top:2px solid var(--ink)}details:last-child{border-bottom:2px solid var(--ink)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;padding:22px 0;font:400 clamp(24px,3.4vw,36px)/1.1 Anton,sans-serif;text-transform:uppercase}
+summary::-webkit-details-marker{display:none}summary::after{content:'+';color:var(--acc);transition:transform .2s}details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 22px;color:var(--mut);max-width:34em}
+footer{padding:36px 0 110px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+/* look switcher */
+.look{position:fixed;z-index:9;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:4px;padding:5px;border-radius:99px;background:#0B1533;color:#F4F1EA;font:600 12px/1 Inter,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.look button{all:unset;cursor:pointer;padding:9px 13px;border-radius:99px}.look button[aria-pressed=true]{background:#D6FF3F;color:#0B1533}
+.look button:focus-visible{outline:2px solid #FF4B14}
+@media(max-width:860px){.su{grid-template-columns:1fr}.bib{max-width:360px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="w"><span class="d">Amager Run 21</span><nav><a href="#route">Route</a><a href="#day">Race day</a><a class="btn" href="#sign">Claim your bib</a></nav></div></header>
+
+<div class="hero" id="hero">
+  <div class="row" style="top:3%">AMAGER RUN 21 · RUN THE HARBOUR · AMAGER RUN 21 · RUN THE HARBOUR ·&nbsp;</div>
+  <div class="row o" style="top:29%">21 KM · 5 SEPT · 21 KM · 5 SEPT · 21 KM · 5 SEPT · 21 KM · 5 SEPT ·&nbsp;</div>
+  <div class="row h" style="top:56%">ONE CITY · ONE HARBOUR · ONE CITY · ONE HARBOUR · ONE CITY · ONE HARBOUR ·&nbsp;</div>
+  <div class="row o" style="top:80%">GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO ·&nbsp;</div>
+  <span class="vt">Amager · 5 September 2027</span><span class="vt r">3,000 places · 3 distances</span>
+  <div class="big"><h1 class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Amager Run 21, 5 September 2027</h1><b aria-hidden="true">21</b><span>km along the water</span></div>
+  <div class="cd" role="timer" aria-label="Time until the start"><div><b id="cd-d">000</b><small>days</small></div><div><b id="cd-h">00</b><small>hours</small></div><div><b id="cd-m">00</b><small>min</small></div><div><b id="cd-s">00</b><small>sec</small></div></div>
+</div>
+
+<section><div class="w">
+  <h2>Pick your<br>distance.</h2>
+  <p class="sub">Three starts, one finish line. Tap a distance to put it on your bib.</p>
+  <div class="dists" id="dists"></div>
+</div></section>
+
+<section id="route" style="padding-top:0"><div class="w">
+  <h2>Flat, fast,<br>and windy.</h2>
+  <p class="sub">A loop along the harbour with one bridge. Drag the slider to run it.</p>
+  <div class="route">
+    <svg class="map" viewBox="0 0 600 340" role="img" aria-label="Route map">
+      <path class="w" d="M20 300q60-30 120 0t120 0 120 0 120 0 100-20"/>
+      <path class="p" id="path" d="M90 250C120 200 150 150 230 130S380 70 450 100 560 170 520 240 400 300 300 270 120 300 90 250Z"/>
+      <circle id="dot" r="11" fill="#FF4B14" stroke="var(--bg)" stroke-width="4"/>
+      <text x="90" y="232" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">Start / finish</text>
+    </svg>
+    <div class="ro">
+      <h3 id="km">0.0 km</h3><p id="info"></p>
+      <input id="sl" type="range" min="0" max="21" step="0.1" value="0" aria-label="Distance along the route in kilometres">
+      <svg class="elev" viewBox="0 0 210 70" preserveAspectRatio="none" aria-hidden="true"><path id="ep" d=""/><line id="em" y1="0" y2="70" stroke="var(--ink)" stroke-width="1.5"/></svg>
+    </div>
+  </div>
+</div></section>
+
+<section id="day" style="padding-top:0"><div class="w">
+  <h2>Race day.</h2>
+  <ol class="sched">
+    <li><time>07:30</time><span>Bag drop and bib check open<em>Start area, by the water</em></span></li>
+    <li><time>09:00</time><span>21 km, waves A, B and C<em>Waves leave five minutes apart</em></span></li>
+    <li><time>10:15</time><span>10 km<em>Chip time on the same course</em></span></li>
+    <li><time>11:00</time><span>5 km<em>Families and first-timers welcome</em></span></li>
+    <li><time>12:30</time><span>Awards and the long lunch<em>Finish line closes at 14:00</em></span></li>
+  </ol>
+</div></section>
+
+<section class="sign" id="sign"><div class="w">
+  <h2>Claim your<br>bib.</h2>
+  <p class="sub">Your number is yours the moment you sign up. This is a concept page, so nothing is sent.</p>
+  <div class="su" id="su">
+    <form id="f" novalidate>
+      <label>Your name<input id="n" autocomplete="name" placeholder="Anna Berg"></label>
+      <label>Email<input id="e" type="email" autocomplete="email" placeholder="anna@example.com"></label>
+      <fieldset><legend style="font-weight:500;font-size:15px">Distance</legend><div class="chips">
+        <label><input type="radio" name="d" value="5" ><span>5K</span></label><label><input type="radio" name="d" value="10"><span>10K</span></label><label><input type="radio" name="d" value="21" checked><span>21K</span></label></div></fieldset>
+      <label>T-shirt size<select id="s"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select></label>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn" type="submit">Claim my bib</button>
+    </form>
+    <div class="bib" id="bibp" aria-hidden="true"><small>Amager Run 21</small><span class="n" id="bn">0427</span><span class="nm" id="bm">Your name</span><small id="bd">21 km · wave A</small><div class="bar"></div></div>
+    <div class="ok" role="status"><h3 id="okT"></h3><p id="okP"></p><canvas id="cv" width="1080" height="1350" aria-label="Your bib card"></canvas><p style="margin-top:12px;font-size:14px">Long-press or right-click the card to save it.</p></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Good to know.</h2>
+  <div style="margin-top:40px">
+    <details><summary>Can I swap distance?</summary><p>Yes, up to two weeks before race day, if places are free in the new distance.</p></details>
+    <details><summary>Where do I leave my bag?</summary><p>Bag drop opens at 07:30 beside the start and stays open until the last runner finishes.</p></details>
+    <details><summary>Is there a time limit?</summary><p>The finish line closes at 14:00. The 21 km sweeper bus leaves with the last wave.</p></details>
+  </div>
+</div></section>
+<footer><div class="w">Amager Run 21 is a concept project. The event, dates and prices are fictional.</div></footer>
+
+<div class="look" role="group" aria-label="Choose a look"><button data-l="day" aria-pressed="false">Day</button><button data-l="night" aria-pressed="false">Night</button><button data-l="volt" aria-pressed="false">Volt</button></div>
+
+<script>
+const $=i=>document.getElementById(i),R=document.documentElement;
+/* looks */
+function look(l){if(l==='volt'){R.dataset.look='volt';delete R.dataset.theme}else{delete R.dataset.look;R.dataset.theme=l==='night'?'dark':'light'}
+ document.querySelectorAll('.look button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l))}
+document.querySelectorAll('.look button').forEach(b=>b.onclick=()=>look(b.dataset.l));
+look(matchMedia('(prefers-color-scheme:dark)').matches?'night':'day');
+/* countdown to 5 Sep 2027, 09:00 Copenhagen */
+const T=new Date('2027-09-05T09:00:00+02:00');
+function tick(){let s=Math.max(0,Math.floor((T-Date.now())/1000));const d=Math.floor(s/86400);s%=86400;
+ $('cd-d').textContent=String(d).padStart(3,'0');$('cd-h').textContent=String(Math.floor(s/3600)).padStart(2,'0');$('cd-m').textContent=String(Math.floor(s%3600/60)).padStart(2,'0');$('cd-s').textContent=String(s%60).padStart(2,'0')}
+tick();setInterval(tick,1000);
+/* parallax rows */
+const rows=[...document.querySelectorAll('.row')];let vis=true,raf=0;
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe($('hero'));
+addEventListener('scroll',()=>{if(!vis||raf)return;raf=requestAnimationFrame(()=>{raf=0;rows.forEach((r,i)=>r.style.translate='0 '+scrollY*(.1+i*.08)+'px')})},{passive:true});
+/* distances */
+const D=[{k:21,t:'09:00',p:'590 kr',n:'2,000 places',x:'Waves A, B, C'},{k:10,t:'10:15',p:'390 kr',n:'700 places',x:'Chip timed'},{k:5,t:'11:00',p:'290 kr',n:'300 places',x:'Family friendly'}];
+let sel=21;
+function rd(){$('dists').innerHTML=D.map(d=>`<button class="dist" data-k="${d.k}" aria-pressed="${d.k===sel}"><span class="d">${d.k}<small>KM</small></span><div><strong>Starts ${d.t}</strong><p>${d.p} · ${d.n} · ${d.x}</p></div></button>`).join('')}
+rd();
+function pick(k){sel=k;rd();document.querySelector(`input[name=d][value="${k}"]`).checked=true;bib()}
+$('dists').addEventListener('click',e=>{const b=e.target.closest('.dist');if(b)pick(+b.dataset.k)});
+/* route */
+const P=$('path'),L=P.getTotalLength(),E=[3,4,5,4,6,8,12,16,12,7,5,4,3,5,7,9,6,4,3,3,2,2],ST=[5,10,15,19];
+$('ep').setAttribute('d','M0 70'+E.map((v,i)=>`L${i*10} ${70-v*3.6}`).join('')+'L210 70Z');
+function run(){const km=+$('sl').value,pt=P.getPointAtLength(L*km/21);$('dot').setAttribute('cx',pt.x);$('dot').setAttribute('cy',pt.y);
+ const i=Math.min(20,Math.floor(km)),f=km-i,el=Math.round(E[i]+(E[i+1]-E[i])*f);
+ $('km').textContent=km.toFixed(1)+' km';
+ const w=ST.find(s=>Math.abs(s-km)<.4);
+ $('info').textContent=km<.2?'Start by the water. Breathe.':km>20.7?'The finish line. You did it.':(w?'Water station here. ':km>7.6&&km<8.4?'The bridge: the only real hill. ':'')+`About ${el} m above sea level.`;
+ $('em').setAttribute('x1',km*10);$('em').setAttribute('x2',km*10)}
+$('sl').oninput=run;run();
+/* bib */
+function num(n){let h=0;for(const c of n.trim().toLowerCase())h=(h*31+c.charCodeAt(0))%2999;return n.trim()?h+1:427}
+const pad=n=>String(n).padStart(4,'0');
+function bib(){const nm=$('n').value.trim(),n=pad(num($('n').value)),el=$('bn');
+ if(el.textContent!==n){el.textContent=n;el.classList.add('pop');setTimeout(()=>el.classList.remove('pop'),180)}
+ $('bm').textContent=nm||'Your name';const k=document.querySelector('input[name=d]:checked').value;
+ $('bd').textContent=k+' km · wave '+(k==='21'?'A':k==='10'?'B':'C')}
+$('n').oninput=bib;
+document.querySelectorAll('input[name=d]').forEach(i=>i.onchange=()=>{sel=+i.value;rd();bib()});
+$('f').addEventListener('submit',e=>{e.preventDefault();
+ const nm=$('n').value.trim(),m=$('e').value.trim();
+ if(!nm){$('err').textContent='Add your name. It goes on the bib.';return}
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m)){$('err').textContent='That email doesn’t look right yet.';return}
+ $('err').textContent='';const n=pad(num(nm)),k=document.querySelector('input[name=d]:checked').value;
+ $('okT').textContent='Bib '+n+' is yours.';$('okP').textContent=`See you on 5 September, ${nm.split(' ')[0]}. Confirmation goes to ${m}. T-shirt: ${$('s').value}.`;
+ document.getElementById('su').parentElement.parentElement.classList.add('done');$('bibp').style.display='none';
+ (document.fonts?document.fonts.load('100px Anton'):Promise.resolve()).then(()=>draw(n,nm,k));
+});
+function draw(n,nm,k){const c=$('cv'),x=c.getContext('2d'),s=getComputedStyle(R),hb=s.getPropertyValue('--hb').trim()||'#0B1533',hi=s.getPropertyValue('--hi').trim(),hh=s.getPropertyValue('--hh').trim();
+ x.fillStyle=hb;x.fillRect(0,0,1080,1350);x.fillStyle='#FF4B14';x.fillRect(0,0,1080,70);x.textAlign='center';
+ x.fillStyle=hi;x.font='64px Anton, Impact, sans-serif';x.fillText('AMAGER RUN 21',540,170);
+ x.fillStyle=hh;x.font='500px Anton, Impact, sans-serif';x.fillText(n,540,720);
+ x.fillStyle=hi;x.font='110px Anton, Impact, sans-serif';x.fillText(nm.toUpperCase().slice(0,16),540,900);
+ x.fillStyle='#FF4B14';x.font='84px Anton, Impact, sans-serif';x.fillText(k+' KM · 5 SEPTEMBER 2027',540,1040);
+ for(let i=0;i<30;i++){x.fillStyle=hi;x.fillRect(60+i*34,1180,18,60)}}
+bib();
+</script>
+</body>
+</html>
