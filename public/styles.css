@@ -61,12 +61,12 @@ body {
 		system-ui,
 		sans-serif;
 }
-.w {
+.content-wrapper {
 	max-width: 1160px;
 	margin: 0 auto;
 	padding: 0 24px;
 }
-.d,
+.site-title,
 h1,
 h2,
 h3 {
@@ -104,7 +104,7 @@ h2 {
 	outline: 3px solid var(--acc);
 	outline-offset: 3px;
 }
-.top {
+.site-header {
 	position: absolute;
 	z-index: 3;
 	left: 0;
@@ -112,7 +112,7 @@ h2 {
 	top: env(safe-area-inset-top, 0px);
 	color: var(--hi);
 }
-.top .w {
+.site-header .content-wrapper {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -120,32 +120,32 @@ h2 {
 	padding-bottom: 18px;
 	gap: 16px;
 }
-.top .d {
+.site-header .site-title {
 	font-size: 24px;
 	letter-spacing: 0.02em;
 }
-.top nav {
+.site-header nav {
 	display: flex;
 	gap: 22px;
 	font-size: 15px;
 	font-weight: 500;
 }
-.top a {
+.site-header a {
 	color: inherit;
 	text-decoration: none;
 }
-.top .btn {
+.site-header .btn {
 	padding: 12px 20px;
 	font-size: 14px;
 	color: var(--bi);
 }
 @media (max-width: 760px) {
-	.top nav a:not(.btn) {
+	.site-header nav a:not(.btn) {
 		display: none;
 	}
 }
 /* hero */
-.hero {
+.hero-section {
 	position: relative;
 	height: 100svh;
 	min-height: 600px;
@@ -155,7 +155,7 @@ h2 {
 	display: grid;
 	place-items: center;
 }
-.row {
+.parallax-row {
 	position: absolute;
 	left: 0;
 	white-space: nowrap;
@@ -170,13 +170,13 @@ h2 {
 	will-change: transform;
 	animation: mq 45s linear infinite;
 }
-.row.o {
+.parallax-row--alt {
 	color: #ff4b14;
 	-webkit-text-stroke: 0;
 	animation-direction: reverse;
 	animation-duration: 60s;
 }
-.row.h {
+.parallax-row--highlight {
 	-webkit-text-stroke-color: var(--hh);
 	animation-duration: 75s;
 }
@@ -185,11 +185,11 @@ h2 {
 		transform: translateX(-50%);
 	}
 }
-.big {
+.hero-title {
 	position: relative;
 	text-align: center;
 }
-.big b {
+.hero-title b {
 	display: block;
 	font:
 		400 clamp(170px, 36vw, 470px)/0.8 Anton,
@@ -197,7 +197,7 @@ h2 {
 	color: var(--hh);
 	letter-spacing: -0.05em;
 }
-.big span {
+.hero-title span {
 	display: block;
 	margin-top: 16px;
 	font:
@@ -206,7 +206,7 @@ h2 {
 	letter-spacing: 0.4em;
 	text-transform: uppercase;
 }
-.vt {
+.hero-vertical-text {
 	position: absolute;
 	top: 50%;
 	writing-mode: vertical-rl;
@@ -218,13 +218,13 @@ h2 {
 	left: clamp(12px, 3vw, 36px);
 	transform: translateY(-50%) rotate(180deg);
 }
-.vt.r {
+.hero-vertical-text--reverse {
 	left: auto;
 	right: clamp(12px, 3vw, 36px);
 	transform: translateY(-50%);
 	color: #ff4b14;
 }
-.cd {
+.countdown {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -234,16 +234,16 @@ h2 {
 	gap: clamp(16px, 4vw, 44px);
 	font-variant-numeric: tabular-nums;
 }
-.cd div {
+.countdown div {
 	text-align: center;
 }
-.cd b {
+.countdown b {
 	display: block;
 	font:
 		400 clamp(34px, 6vw, 64px)/1 Anton,
 		sans-serif;
 }
-.cd small {
+.countdown small {
 	font-size: 12px;
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
@@ -253,19 +253,19 @@ h2 {
 section {
 	padding: clamp(72px, 10vw, 150px) 0;
 }
-.sub {
+.section-subtitle {
 	max-width: 34em;
 	color: var(--mut);
 	margin: 20px 0 0;
 	font-size: 19px;
 }
-.dists {
+.distance-picker {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 16px;
 	margin-top: 48px;
 }
-.dist {
+.distance-button {
 	all: unset;
 	box-sizing: border-box;
 	cursor: pointer;
@@ -280,50 +280,50 @@ section {
 		border-color 0.2s,
 		background 0.2s;
 }
-.dist:hover {
+.distance-button:hover {
 	transform: translateY(-4px);
 }
-.dist:focus-visible {
+.distance-button:focus-visible {
 	outline: 3px solid var(--acc);
 	outline-offset: 3px;
 }
-.dist[aria-pressed="true"] {
+.distance-button[aria-pressed="true"] {
 	border-color: var(--acc);
 	background: color-mix(in srgb, var(--acc) 8%, transparent);
 }
-.dist .d {
+.distance-button .distance-number {
 	font-size: clamp(80px, 11vw, 140px);
 	line-height: 0.85;
 }
-.dist .d small {
+.distance-button .distance-number small {
 	font-size: 0.3em;
 	margin-left: 4px;
 	color: var(--acc);
 }
-.dist p {
+.distance-button p {
 	margin: 0;
 	color: var(--mut);
 	font-size: 15.5px;
 }
-.dist strong {
+.distance-button strong {
 	color: var(--ink);
 	font-size: 18px;
 }
 /* route */
-.route {
+.route-section {
 	display: grid;
 	grid-template-columns: 1.4fr 1fr;
 	gap: clamp(24px, 5vw, 64px);
 	margin-top: 48px;
 	align-items: center;
 }
-.map {
+.route-map {
 	width: 100%;
 	height: auto;
 	background: color-mix(in srgb, var(--ink) 5%, transparent);
 	border-radius: 20px;
 }
-.map .p {
+.route-map .route-path-line {
 	fill: none;
 	stroke: var(--ink);
 	stroke-width: 5;
@@ -331,59 +331,59 @@ section {
 	stroke-linejoin: round;
 	opacity: 0.9;
 }
-.map .w {
+.route-map .route-path-stroke {
 	fill: none;
 	stroke: var(--mut);
 	stroke-width: 1.5;
 	stroke-dasharray: 3 7;
 	opacity: 0.5;
 }
-.ro h3 {
+.route-info-panel h3 {
 	font-size: clamp(52px, 8vw, 92px);
 	line-height: 0.9;
 	color: var(--acc);
 }
-.ro p {
+.route-info-panel p {
 	margin: 6px 0 18px;
 	color: var(--mut);
 	min-height: 3.3em;
 }
-.ro input[type="range"] {
+.route-info-panel input[type="range"] {
 	width: 100%;
 	accent-color: var(--acc);
 	height: 36px;
 }
-.elev {
+.elevation-chart {
 	width: 100%;
 	height: 70px;
 	margin-top: 6px;
 }
-.elev path {
+.elevation-chart path {
 	fill: color-mix(in srgb, var(--acc) 22%, transparent);
 	stroke: var(--acc);
 	stroke-width: 2;
 }
 @media (max-width: 860px) {
-	.route {
+	.route-section {
 		grid-template-columns: 1fr;
 	}
-	.dists {
+	.distance-picker {
 		grid-template-columns: 1fr;
 	}
-	.dist {
+	.distance-button {
 		flex-direction: row;
 		align-items: center;
 		gap: 20px;
 	}
 }
 /* schedule */
-.sched {
+.schedule {
 	margin: 48px 0 0;
 	padding: 0;
 	list-style: none;
 	border-top: 2px solid var(--ink);
 }
-.sched li {
+.schedule li {
 	display: grid;
 	grid-template-columns: clamp(90px, 16vw, 200px) 1fr;
 	gap: 16px;
@@ -391,31 +391,31 @@ section {
 	padding: 18px 0;
 	border-bottom: 1px solid var(--line);
 }
-.sched time {
+.schedule time {
 	font:
 		400 clamp(30px, 5vw, 56px)/1 Anton,
 		sans-serif;
 	font-variant-numeric: tabular-nums;
 }
-.sched span {
+.schedule span {
 	font-size: 18px;
 }
-.sched em {
+.schedule em {
 	font-style: normal;
 	color: var(--mut);
 	display: block;
 	font-size: 15px;
 }
 /* signup */
-.sign {
+.sign-up-section {
 	background: var(--hb);
 	color: var(--hi);
 }
-.sign .sub {
+.sign-up-section .sub {
 	color: inherit;
 	opacity: 0.8;
 }
-.su {
+.sign-up-form-wrapper {
 	display: grid;
 	grid-template-columns: 1fr 360px;
 	gap: clamp(28px, 6vw, 80px);
@@ -444,24 +444,32 @@ select {
 	padding: 14px 16px;
 	min-height: 54px;
 }
+input[type="range"] {
+	padding: 0;
+	border: none;
+	background: none;
+	min-height: unset;
+	height: 36px;
+	margin-top: 0;
+}
 select option {
 	color: #0b1533;
 }
-.chips {
+.distance-radios {
 	display: flex;
 	gap: 10px;
 	margin-top: 8px;
 }
-.chips label {
+.distance-radios label {
 	margin: 0;
 }
-.chips input {
+.distance-radios input {
 	position: absolute;
 	opacity: 0;
 	width: 1px;
 	height: 1px;
 }
-.chips span {
+.distance-radios span {
 	display: block;
 	padding: 14px 22px;
 	border-radius: 99px;
@@ -472,25 +480,25 @@ select option {
 		sans-serif;
 	transition: background 0.15s;
 }
-.chips input:checked + span {
+.distance-radios input:checked + span {
 	background: var(--hh);
 	color: var(--hb);
 	border-color: var(--hh);
 }
-.chips input:focus-visible + span {
+.distance-radios input:focus-visible + span {
 	outline: 3px solid var(--hh);
 	outline-offset: 3px;
 }
-.err {
+.form-error {
 	min-height: 24px;
 	margin: 0 0 10px;
 	color: #ff8a66;
 }
-.sign .btn {
+.sign-up-section .btn {
 	background: var(--hh);
 	color: var(--hb);
 }
-.bib {
+.bib-preview-card {
 	background: #f4f1ea;
 	color: #0b1533;
 	border-radius: 16px;
@@ -499,8 +507,8 @@ select option {
 	transform: rotate(-2deg);
 	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
 }
-.bib::before,
-.bib::after {
+.bib-preview-card::before,
+.bib-preview-card::after {
 	content: "";
 	position: absolute;
 	top: 12px;
@@ -509,13 +517,13 @@ select option {
 	border-radius: 50%;
 	background: var(--hb);
 }
-.bib::before {
+.bib-preview-card::before {
 	left: 14px;
 }
-.bib::after {
+.bib-preview-card::after {
 	right: 14px;
 }
-.bib small {
+.bib-preview-card small {
 	display: block;
 	text-align: center;
 	font:
@@ -525,7 +533,7 @@ select option {
 	text-transform: uppercase;
 	margin-top: 10px;
 }
-.bib .n {
+.bib-preview-card .bib-number {
 	display: block;
 	text-align: center;
 	font:
@@ -536,10 +544,10 @@ select option {
 	margin: 6px 0 0;
 	transition: transform 0.2s;
 }
-.bib .n.pop {
+.bib-preview-card .bib-number.pop-animation {
 	transform: scale(1.06);
 }
-.bib .nm {
+.bib-preview-card .bib-name {
 	display: block;
 	text-align: center;
 	font:
@@ -548,7 +556,7 @@ select option {
 	text-transform: uppercase;
 	min-height: 1.1em;
 }
-.bib .bar {
+.bib-preview-card .bib-strip {
 	height: 10px;
 	background: repeating-linear-gradient(
 		90deg,
@@ -557,30 +565,34 @@ select option {
 	);
 	margin-top: 16px;
 }
-.done .su > form {
+.done .sign-up-form-wrapper > form {
 	display: none;
 }
-.ok {
+.confirmation-panel {
 	display: none;
 }
-.done .ok {
+.done .confirmation-panel {
 	display: block;
 }
-.ok h3 {
+.confirmation-panel h3 {
 	font-size: clamp(40px, 7vw, 80px);
 	line-height: 0.95;
 	color: var(--hh);
 }
-.ok canvas {
+.canvas-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.confirmation-panel canvas {
 	width: 100%;
 	max-width: 340px;
 	border-radius: 14px;
-	margin-top: 18px;
+	margin-top: 10vh;
 	display: block;
 }
-.ok p {
+.confirmation-panel p {
 	opacity: 0.8;
-	max-width: 30em;
 }
 /* faq */
 details {
@@ -623,7 +635,7 @@ footer {
 	border-top: 1px solid var(--line);
 }
 /* look switcher */
-.look {
+.theme-switcher {
 	position: fixed;
 	z-index: 9;
 	right: 14px;
@@ -639,24 +651,24 @@ footer {
 		sans-serif;
 	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
-.look button {
+.theme-switcher button {
 	all: unset;
 	cursor: pointer;
 	padding: 9px 13px;
 	border-radius: 99px;
 }
-.look button[aria-pressed="true"] {
+.theme-switcher button[aria-pressed="true"] {
 	background: #d6ff3f;
 	color: #0b1533;
 }
-.look button:focus-visible {
+.theme-switcher button:focus-visible {
 	outline: 2px solid #ff4b14;
 }
 @media (max-width: 860px) {
-	.su {
+	.sign-up-form-wrapper {
 		grid-template-columns: 1fr;
 	}
-	.bib {
+	.bib-preview-card {
 		max-width: 360px;
 	}
 }

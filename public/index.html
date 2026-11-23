@@ -15,39 +15,41 @@
 		<link rel="stylesheet" href="./styles.css" />
 	</head>
 	<body>
-		<header class="top">
-			<div class="w">
-				<span class="d">Amager Run 21</span>
+		<header class="site-header">
+			<div class="content-wrapper">
+				<span class="site-title">Amager Run 21</span>
 				<nav>
 					<a href="#route">Route</a>
 					<a href="#day">Race day</a>
-					<a class="btn" href="#sign">Claim your bib</a>
+					<a class="btn" href="#sign-up-section">Claim your bib</a>
 				</nav>
 			</div>
 		</header>
 
-		<div class="hero" id="hero">
-			<div class="row" style="top: 3%">
+		<div class="hero-section" id="hero-section">
+			<div class="parallax-row" style="top: 3%">
 				AMAGER RUN 21 · RUN THE HARBOUR · AMAGER RUN 21 · RUN THE
 				HARBOUR ·&nbsp;
 			</div>
-			<div class="row o" style="top: 29%">
+			<div class="parallax-row parallax-row--alt" style="top: 29%">
 				21 KM · 5 SEPT · 21 KM · 5 SEPT · 21 KM · 5 SEPT · 21 KM · 5
 				SEPT ·&nbsp;
 			</div>
-			<div class="row h" style="top: 56%">
+			<div class="parallax-row parallax-row--highlight" style="top: 56%">
 				ONE CITY · ONE HARBOUR · ONE CITY · ONE HARBOUR · ONE CITY · ONE
 				HARBOUR ·&nbsp;
 			</div>
-			<div class="row o" style="top: 80%">
+			<div class="parallax-row parallax-row--alt" style="top: 80%">
 				GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO · GO ·
 				GO · GO ·&nbsp;
 			</div>
-			<span class="vt">Amager · 5 September 2027</span>
-			<span class="vt r">3,000 places · 3 distances</span>
-			<div class="big">
+			<span class="hero-vertical-text">Amager · 5 September 2027</span>
+			<span class="hero-vertical-text hero-vertical-text--reverse">
+				3,000 places · 3 distances
+			</span>
+			<div class="hero-title">
 				<h1
-					class="sr"
+					class="screen-reader-only"
 					style="
 						position: absolute;
 						width: 1px;
@@ -61,70 +63,94 @@
 				<b aria-hidden="true">21</b>
 				<span>km along the water</span>
 			</div>
-			<div class="cd" role="timer" aria-label="Time until the start">
+			<div
+				class="countdown"
+				role="timer"
+				aria-label="Time until the start"
+			>
 				<div>
-					<b id="cd-d">000</b>
+					<b id="countdown-days">000</b>
 					<small>days</small>
 				</div>
 				<div>
-					<b id="cd-h">00</b>
+					<b id="countdown-hours">00</b>
 					<small>hours</small>
 				</div>
 				<div>
-					<b id="cd-m">00</b>
+					<b id="countdown-minutes">00</b>
 					<small>min</small>
 				</div>
 				<div>
-					<b id="cd-s">00</b>
+					<b id="countdown-seconds">00</b>
 					<small>sec</small>
 				</div>
 			</div>
 		</div>
 
 		<section>
-			<div class="w">
+			<div class="content-wrapper">
 				<h2>
 					Pick your
 					<br />
 					distance.
 				</h2>
-				<p class="sub">
+				<p class="section-subtitle">
 					Three starts, one finish line. Tap a distance to put it on
 					your bib.
 				</p>
-				<div class="dists" id="dists"></div>
+				<div class="distance-picker" id="distance-picker"></div>
+				<template id="distance-button-template">
+					<button
+						type="button"
+						class="distance-button"
+						data-k=""
+						aria-pressed="false"
+					>
+						<span class="distance-number">
+							<span class="km-value"></span>
+							<small>KM</small>
+						</span>
+						<div>
+							<strong>
+								Starts
+								<span class="start-time"></span>
+							</strong>
+							<p><span class="meta"></span></p>
+						</div>
+					</button>
+				</template>
 			</div>
 		</section>
 
 		<section id="route" style="padding-top: 0">
-			<div class="w">
+			<div class="content-wrapper">
 				<h2>
 					Flat, fast,
 					<br />
 					and windy.
 				</h2>
-				<p class="sub">
+				<p class="section-subtitle">
 					A loop along the harbour with one bridge. Drag the slider to
 					run it.
 				</p>
-				<div class="route">
+				<div class="route-section">
 					<svg
-						class="map"
+						class="route-map"
 						viewBox="0 0 600 340"
 						role="img"
 						aria-label="Route map"
 					>
 						<path
-							class="w"
+							class="route-path-stroke"
 							d="M20 300q60-30 120 0t120 0 120 0 120 0 100-20"
 						/>
 						<path
-							class="p"
-							id="path"
+							class="route-path-line"
+							id="route-path"
 							d="M90 250C120 200 150 150 230 130S380 70 450 100 560 170 520 240 400 300 300 270 120 300 90 250Z"
 						/>
 						<circle
-							id="dot"
+							id="route-dot"
 							r="11"
 							fill="#FF4B14"
 							stroke="var(--bg)"
@@ -141,11 +167,11 @@
 							Start / finish
 						</text>
 					</svg>
-					<div class="ro">
-						<h3 id="km">0.0 km</h3>
-						<p id="info"></p>
+					<div class="route-info-panel">
+						<h3 id="route-km">0.0 km</h3>
+						<p id="route-status"></p>
 						<input
-							id="sl"
+							id="route-slider"
 							type="range"
 							min="0"
 							max="21"
@@ -154,14 +180,14 @@
 							aria-label="Distance along the route in kilometres"
 						/>
 						<svg
-							class="elev"
+							class="elevation-chart"
 							viewBox="0 0 210 70"
 							preserveAspectRatio="none"
 							aria-hidden="true"
 						>
-							<path id="ep" d="" />
+							<path id="elevation-path" d="" />
 							<line
-								id="em"
+								id="elevation-marker"
 								y1="0"
 								y2="70"
 								stroke="var(--ink)"
@@ -174,9 +200,9 @@
 		</section>
 
 		<section id="day" style="padding-top: 0">
-			<div class="w">
+			<div class="content-wrapper">
 				<h2>Race day.</h2>
-				<ol class="sched">
+				<ol class="schedule">
 					<li>
 						<time>07:30</time>
 						<span>
@@ -216,23 +242,23 @@
 			</div>
 		</section>
 
-		<section class="sign" id="sign">
-			<div class="w">
+		<section class="sign-up-section" id="sign-up-section">
+			<div class="content-wrapper">
 				<h2>
 					Claim your
 					<br />
 					bib.
 				</h2>
-				<p class="sub">
+				<p class="section-subtitle">
 					Your number is yours the moment you sign up. This is a
 					concept page, so nothing is sent.
 				</p>
-				<div class="su" id="su">
-					<form id="f" novalidate>
+				<div class="sign-up-form-wrapper" id="sign-up-form-wrapper">
+					<form id="sign-up-form" novalidate>
 						<label>
 							Your name
 							<input
-								id="n"
+								id="name-input"
 								autocomplete="name"
 								placeholder="Anna Berg"
 							/>
@@ -240,7 +266,7 @@
 						<label>
 							Email
 							<input
-								id="e"
+								id="email-input"
 								type="email"
 								autocomplete="email"
 								placeholder="anna@example.com"
@@ -250,19 +276,27 @@
 							<legend style="font-weight: 500; font-size: 15px">
 								Distance
 							</legend>
-							<div class="chips">
+							<div class="distance-radios">
 								<label>
-									<input type="radio" name="d" value="5" />
+									<input
+										type="radio"
+										name="distance"
+										value="5"
+									/>
 									<span>5K</span>
 								</label>
 								<label>
-									<input type="radio" name="d" value="10" />
+									<input
+										type="radio"
+										name="distance"
+										value="10"
+									/>
 									<span>10K</span>
 								</label>
 								<label>
 									<input
 										type="radio"
-										name="d"
+										name="distance"
 										value="21"
 										checked
 									/>
@@ -272,28 +306,36 @@
 						</fieldset>
 						<label>
 							T-shirt size
-							<select id="s">
+							<select id="shirt-size">
 								<option>S</option>
 								<option selected>M</option>
 								<option>L</option>
 								<option>XL</option>
 							</select>
 						</label>
-						<p class="err" id="err" role="alert"></p>
+						<p class="form-error" id="form-error" role="alert"></p>
 						<button class="btn" type="submit">Claim my bib</button>
 					</form>
-					<div class="bib" id="bibp" aria-hidden="true">
+					<div
+						class="bib-preview-card"
+						id="bib-preview"
+						aria-hidden="true"
+					>
 						<small>Amager Run 21</small>
-						<span class="n" id="bn">0427</span>
-						<span class="nm" id="bm">Your name</span>
-						<small id="bd">21 km · wave A</small>
-						<div class="bar"></div>
+						<span class="bib-number" id="bib-number">0427</span>
+						<span class="bib-name" id="bib-name">Your name</span>
+						<small id="bib-distance">21 km · wave A</small>
+						<div class="bib-strip"></div>
 					</div>
-					<div class="ok" role="status">
-						<h3 id="okT"></h3>
-						<p id="okP"></p>
+				</div>
+				<div class="confirmation-panel" role="status">
+					<h3 id="confirmation-title"></h3>
+					<p id="confirmation-text"></p>
+					<p id="confirmation-text-confirmation"></p>
+					<p id="confirmation-text-tShirt"></p>
+					<div class="canvas-container">
 						<canvas
-							id="cv"
+							id="bib-canvas"
 							width="1080"
 							height="1350"
 							aria-label="Your bib card"
@@ -307,7 +349,7 @@
 		</section>
 
 		<section>
-			<div class="w">
+			<div class="content-wrapper">
 				<h2>Good to know.</h2>
 				<div style="margin-top: 40px">
 					<details>
@@ -335,13 +377,13 @@
 			</div>
 		</section>
 		<footer>
-			<div class="w">
+			<div class="content-wrapper">
 				Amager Run 21 is a concept project. The event, dates and prices
 				are fictional.
 			</div>
 		</footer>
 
-		<div class="look" role="group" aria-label="Choose a look">
+		<div class="theme-switcher" role="group" aria-label="Choose a look">
 			<button data-l="day" aria-pressed="false">Day</button>
 			<button data-l="night" aria-pressed="false">Night</button>
 			<button data-l="volt" aria-pressed="false">Volt</button>
